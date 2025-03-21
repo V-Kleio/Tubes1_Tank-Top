@@ -1,0 +1,10 @@
+# Build Folders
+**/bin/
+**/obj/
+
+# NuGet Packages
+*.nupkg
+packages/
+
+# VSCode Settings
+.vscode/
