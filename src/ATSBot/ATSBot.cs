@@ -5,7 +5,7 @@ using Robocode.TankRoyale.BotApi;
 using Robocode.TankRoyale.BotApi.Events;
 
 // ---------------------------------------------
-// ATS AKA Aggresive Target Seeker
+// ASS AKA Aggresive Seeker Sharpshooter
 // ---------------------------------------------
 // This bot utilizes the strategy to find the
 // optimal target. Every turn, scan for enemies 
@@ -45,21 +45,31 @@ public class ATSBot : Bot
             if (target != null)
             {
                 double distance = DistanceTo(target.XPosition, target.YPosition);
+                double firepower = distance > 300 ? 1 : 3;
+                
+
+                double bulletSpeed = 20 - 3 * firepower;
+                double travelTime = distance / bulletSpeed;
+
+                double enemyRadians = target.Direction * Math.PI / 180.0;
+                double predictedX = target.XPosition + target.Speed * Math.Cos(enemyRadians) * travelTime;
+                double predictedY = target.YPosition + target.Speed * Math.Sin(enemyRadians) * travelTime;
+
+                TurnToEnemyTank(predictedX, predictedY, true);
+                Fire(firepower);
+
                 TurnToEnemyTank(target.XPosition, target.YPosition);
 
                 if (distance > 300)
                 {
                     Forward(Math.Min(distance - 250, 100));
-                    TurnToEnemyTank(target.XPosition, target.YPosition, true);
-                    Fire(1);
                 }
                 else
                 {
                     TurnRight(90);
                     Forward(50);
-                    TurnToEnemyTank(target.XPosition, target.YPosition, true);
-                    Fire(3);
                 }
+
             }
         }
 
@@ -73,7 +83,9 @@ public class ATSBot : Bot
             Id = scannedBot.ScannedBotId,
             XPosition = scannedBot.X,
             YPosition = scannedBot.Y,
-            Energy = scannedBot.Energy
+            Energy = scannedBot.Energy,
+            Direction = scannedBot.Direction,
+            Speed = scannedBot.Speed
         };
         Rescan();
     }
@@ -131,6 +143,8 @@ class EnemyInfo
     public double XPosition { get; set; }
     public double YPosition { get; set; }
     public double Energy { get; set; }
+    public double Direction { get; set; }
+    public double Speed { get; set; }
 }
 
 class FullRadarScan : Condition
