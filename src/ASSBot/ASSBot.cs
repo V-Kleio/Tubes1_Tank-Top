@@ -41,6 +41,7 @@ public class ASSBot : Bot
     private const double FIREPOWER_INCREMENT = 0.1;
     private const double DISTANCE_WEIGHT = 1.0;
     private const double ENERGY_WEIGHT = 5.0;
+    private const double DISTANCE_THRESHOLD = 50;
     private Random randomGenerator = new Random();
     static void Main(string[] args)
     {
@@ -85,16 +86,16 @@ public class ASSBot : Bot
                 Fire(firepower);
 
                 // Movement Behaviour
-                if (distance > 300)
+                double tankAngle = RelativeEnemyAngle(predictedX, predictedY);
+                TurnLeft(tankAngle);
+                TurnRate = randomGenerator.NextDouble() * 6 - 3; // random from -3 to 3
+                if (distance - DISTANCE_THRESHOLD > 0)
                 {
-                    double tankAngle = RelativeEnemyAngle(predictedX, predictedY);
-                    TurnLeft(tankAngle);
-                    Forward(Math.Min(distance - 250, 100));
+                    Forward(distance - DISTANCE_THRESHOLD);
                 }
                 else
                 {
-                    TurnRight(90);
-                    Forward(50);
+                    Back(DISTANCE_THRESHOLD);
                 }
             }
             TurnRadarRight(360);
@@ -206,7 +207,7 @@ public class ASSBot : Bot
         foreach (var enemy in enemies.Values)
         {
             double distance = DistanceTo(enemy.XPosition, enemy.YPosition);
-            double score = (DISTANCE_WEIGHT / distance) + (ENERGY_WEIGHT / enemy.Energy);
+            double score = (DISTANCE_WEIGHT / (distance + 1)) + (ENERGY_WEIGHT / enemy.Energy);
             if (score > bestValue)
             {
                 bestValue = score;

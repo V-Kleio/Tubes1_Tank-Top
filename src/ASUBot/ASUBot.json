@@ -1,0 +1,14 @@
+{
+    "name": "ASUBot",
+    "version": "1.0",
+    "authors": [
+      "Rafael M.D.W."
+    ],
+    "description": "This bot position itself to a best safespot. When the bot scan an enemy with the best opportunity to strike, change course to ram and immediately shoot and then quickly retreat to a safe location.",
+    "homepage": "",
+    "countryCodes": [
+      "id"
+    ],
+    "platform": ".Net 8.0",
+    "programmingLang": "C# 10.0"
+}
