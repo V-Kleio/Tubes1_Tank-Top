@@ -28,7 +28,7 @@ using Robocode.TankRoyale.BotApi.Events;
 // The bot then fire the firepower with the highest value
 // ----------------------------------------------------------------------------------
 
-public class ATSBot : Bot 
+public class ASSBot : Bot 
 {
     private Dictionary<int, EnemyInfo> enemies = new Dictionary<int, EnemyInfo>();
     private double MAX_DISTANCE;
@@ -44,10 +44,10 @@ public class ATSBot : Bot
     private Random randomGenerator = new Random();
     static void Main(string[] args)
     {
-        new ATSBot().Start();
+        new ASSBot().Start();
     }
 
-    ATSBot() : base(BotInfo.FromFile("ATSBot.json")) { }
+    ASSBot() : base(BotInfo.FromFile("ASSBot.json")) { }
 
     public override void Run()
     {
@@ -231,11 +231,11 @@ class EnemyInfo
 
 class FullRadarScan : Condition
 {
-    private ATSBot bot;
+    private ASSBot bot;
     private double previousRadarDirection;
     private double cumulativeRotation;
 
-    public FullRadarScan(ATSBot bot)
+    public FullRadarScan(ASSBot bot)
     {
         this.bot = bot;
         previousRadarDirection = bot.RadarDirection;
