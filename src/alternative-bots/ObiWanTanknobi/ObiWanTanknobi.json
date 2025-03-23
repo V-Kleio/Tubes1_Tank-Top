@@ -1,0 +1,14 @@
+{
+    "name": "ObiWanTanknobi",
+    "version": "1.0",
+    "authors": [
+      "Muhammad Kinan A."
+    ],
+    "description": "It's over, I have the high ground",
+    "homepage": "",
+    "countryCodes": [
+      "id"
+    ],
+    "platform": ".Net 8.0",
+    "programmingLang": "C# 10.0"
+  }
