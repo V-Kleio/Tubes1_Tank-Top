@@ -1,0 +1,14 @@
+{
+    "name": "PNIS Bot",
+    "version": "1.0",
+    "authors": [
+      "Muhammad Kinan A."
+    ],
+    "description": "PNIS – Predictive enemy Neutralization & Intelligent Shooting",
+    "homepage": "",
+    "countryCodes": [
+      "id"
+    ],
+    "platform": ".Net 8.0",
+    "programmingLang": "C# 10.0"
+  }
