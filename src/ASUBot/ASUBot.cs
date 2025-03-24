@@ -24,7 +24,7 @@ using Robocode.TankRoyale.BotApi.Events;
 // position when being hit and add a permanent danger score.
 // ----------------------------------------------------------------------------------
 
-public class ASUBot : Bot 
+public class ASUBot : Bot
 {
     private Dictionary<int, EnemyInfo> enemies = new Dictionary<int, EnemyInfo>();
     private const double RADIANS_TO_DEGREE = 180.0 / Math.PI;
@@ -49,6 +49,14 @@ public class ASUBot : Bot
 
     public override void Run()
     {
+        BodyColor = Color.FromArgb(128, 0, 128);
+        TurretColor = Color.FromArgb(94, 0, 94);
+        RadarColor = Color.FromArgb(160, 32, 240);
+        BulletColor = Color.FromArgb(255, 0, 255);
+        ScanColor = Color.FromArgb(200, 0, 200);
+        TracksColor = Color.FromArgb(80, 0, 80);
+        GunColor = Color.FromArgb(150, 0, 150);
+
         cellWidth = ArenaWidth / GRID_COLS;
         cellHeight = ArenaHeight / GRID_ROWS;
 
@@ -157,7 +165,7 @@ public class ASUBot : Bot
         double headingRadians = Math.Atan2(deltaY, deltaX);
         double headingAngle = headingRadians * RADIANS_TO_DEGREE;
         double deltaAngle;
-            
+
         deltaAngle = headingAngle - Direction;
         return deltaAngle;
     }

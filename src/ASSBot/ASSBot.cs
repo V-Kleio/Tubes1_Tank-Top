@@ -28,7 +28,7 @@ using Robocode.TankRoyale.BotApi.Events;
 // The bot then fire the firepower with the highest value
 // ----------------------------------------------------------------------------------
 
-public class ASSBot : Bot 
+public class ASSBot : Bot
 {
     private Dictionary<int, EnemyInfo> enemies = new Dictionary<int, EnemyInfo>();
     private double MAX_DISTANCE;
@@ -52,6 +52,14 @@ public class ASSBot : Bot
 
     public override void Run()
     {
+        BodyColor = Color.FromArgb(0x00, 0xC8, 0x00);
+        TurretColor = Color.FromArgb(0x00, 0x96, 0x32);
+        RadarColor = Color.FromArgb(0x00, 0x64, 0x64);
+        BulletColor = Color.FromArgb(0xFF, 0xFF, 0x64);
+        ScanColor = Color.FromArgb(0xFF, 0xC8, 0xC8);
+        TracksColor = Color.FromArgb(0x80, 0x80, 0x80);
+        GunColor = Color.FromArgb(0xFF, 0x00, 0x00);
+
         MAX_DISTANCE = Math.Sqrt(Math.Pow(ArenaHeight, 2) + Math.Pow(ArenaWidth, 2));
         AdjustGunForBodyTurn = true;
         AdjustRadarForBodyTurn = true;
@@ -110,7 +118,7 @@ public class ASSBot : Bot
         double maxCandidate = Math.Min(MAX_ENERGY, Energy);
         double pDistance = Math.Max(0, 1 - distance / MAX_DISTANCE);
         double stability = 1 - enemy.Erraticness;
-        double speedFactor = Math.Max(0.1 , 1 - enemy.Speed / MAX_VELOCITY);
+        double speedFactor = Math.Max(0.1, 1 - enemy.Speed / MAX_VELOCITY);
 
         for (double candidate = LOWEST_FIREPOWER; candidate <= maxCandidate; candidate += FIREPOWER_INCREMENT)
         {
@@ -195,7 +203,7 @@ public class ASSBot : Bot
             deltaAngle = headingAngle - GunDirection;
             return deltaAngle;
         }
-            
+
         deltaAngle = headingAngle - Direction;
         return deltaAngle;
     }
