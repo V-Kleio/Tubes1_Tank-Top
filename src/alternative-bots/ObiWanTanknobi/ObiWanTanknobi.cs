@@ -45,6 +45,7 @@ using Robocode.TankRoyale.BotApi.Events;
  * - Reactive Evasion: Dodging is entirely reactionary, and the bot may not be as effective against bots with more strategic planning.
  * - Energy Inefficiency: No long-term energy conservation strategy, leading to potential exhaustion in longer battles.
  * - Limited Tactical Depth: OBI-WAN TANKNOBI's focus on high ground may limit its ability to adapt in complex or dynamic combat situations.
+ * 
  */
 public class ObiWanTanknobi : Bot
 {
@@ -68,6 +69,10 @@ public class ObiWanTanknobi : Bot
 
     public override void Run()
     {
+        AdjustRadarForBodyTurn = false;
+        AdjustGunForBodyTurn = false;
+        AdjustRadarForGunTurn = false;
+
         while (IsRunning)
         {
             Strategy();
@@ -81,8 +86,10 @@ public class ObiWanTanknobi : Bot
 
         // Detecting any change in enemies' energy
         if (ShouldDodge())
+        {
             // if there's changes, evade because likely it's a shot
             Evade(enemyShot);
+        }
     }
 
     private void SetupPosition()
@@ -163,7 +170,7 @@ public class ObiWanTanknobi : Bot
 
     public override void OnScannedBot(ScannedBotEvent e)
     {
-        Fire(3);
+        Fire(1);
         string enemyId = e.ScannedBotId.ToString();
         if (enemies.ContainsKey(enemyId))
         {
@@ -171,10 +178,6 @@ public class ObiWanTanknobi : Bot
         }
 
         enemies[enemyId] = new EnemyInfo(e.X, e.Y, e.Energy);
-    }
-    private double GetDistance(double x, double y)
-    {
-        return Math.Sqrt(Math.Pow(x - X, 2) + Math.Pow(y - Y, 2));
     }
 
     private double NormalizeBearing(double angle)
