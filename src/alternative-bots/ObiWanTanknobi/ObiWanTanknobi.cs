@@ -69,6 +69,14 @@ public class ObiWanTanknobi : Bot
 
     public override void Run()
     {
+        TurretColor = Color.White;
+        ScanColor = Color.White;
+        BulletColor = Color.White;
+        BodyColor = Color.White;
+        RadarColor = Color.White;
+        TracksColor = Color.White;
+        GunColor = Color.White;
+
         AdjustRadarForBodyTurn = false;
         AdjustGunForBodyTurn = false;
         AdjustRadarForGunTurn = false;

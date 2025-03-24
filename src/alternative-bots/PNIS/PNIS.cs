@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using Robocode.TankRoyale.BotApi;
 using Robocode.TankRoyale.BotApi.Events;
 
@@ -67,6 +68,14 @@ public class PNIS : Bot
 
     public override void Run()
     {
+        TurretColor = Color.Black;
+        ScanColor = Color.Black;
+        BulletColor = Color.Black;
+        BodyColor = Color.Black;
+        RadarColor = Color.Black;
+        TracksColor = Color.Black;
+        GunColor = Color.Black;
+
         AdjustRadarForGunTurn = true;
         TurnRadarRight(360);
         while (IsRunning)
