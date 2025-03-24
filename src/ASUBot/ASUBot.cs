@@ -68,6 +68,17 @@ public class ASUBot : Bot
         }
     }
 
+    public override void OnRoundStarted(RoundStartedEvent e)
+    {
+        for (int i = 0; i < GRID_ROWS; i++)
+        {
+            for (int j = 0; j < GRID_COLS; j++)
+            {
+                dangerGrid[i, j] = 0;
+            }
+        }
+    }
+
     public override void OnScannedBot(ScannedBotEvent scannedBot)
     {
         Fire(FIREPOWER);
