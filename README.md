@@ -13,7 +13,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This project showcases four distinct bots developed for **Robocode Tank Royale** version 0.30, each implementing different **greedy algorithms** to optimize their combat strategies. The bots—**PNIS Bot, ASSBot, ASUBot, and Obi-Wan Tanknobi**—demonstrate various approaches to movement, targeting, and decision-making in a competitive AI-driven environment.
+This project showcases four distinct bots developed for **Robocode Tank Royale** version 0.30, each implementing different **greedy algorithms** to optimize their combat strategies. The bots—**PNIS Bot, ASSBot, ASUBot, and Obi-Wan Tanknobi**—demonstrate various approaches to movement, targeting, and decision-making in a competitive environment.
 
 ## Bots Overview
 - **PNIS Bot**: Uses **predictive aiming** and **adaptive movement** to efficiently track and engage enemies, balancing offensive and defensive strategies.  
