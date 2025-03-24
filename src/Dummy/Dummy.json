@@ -1,0 +1,14 @@
+{
+    "name": "Dummy",
+    "version": "1.0",
+    "authors": [
+      "Rafael M.D.W."
+    ],
+    "description": "This bot is used for testing purpose.",
+    "homepage": "",
+    "countryCodes": [
+      "id"
+    ],
+    "platform": ".Net 8.0",
+    "programmingLang": "C# 10.0"
+}
