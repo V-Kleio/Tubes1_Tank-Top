@@ -134,7 +134,7 @@ public class ObiWanTanknobi : Bot
             TurnGunRight(180);
             turnRadarLeft = true;
         }
-        WaitFor(new RadarTurnCompleteCondition(this));
+        // WaitFor(new RadarTurnCompleteCondition(this));
 
         foreach (var enemy in enemies)
         {
