@@ -6,8 +6,6 @@
     <li>
       <a href="#about-the-project">About The Project</a>
     </li>
-    <li><a href="#installation">Installation</a></li>
-    <li><a href="#usage">Usage</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
