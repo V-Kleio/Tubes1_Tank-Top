@@ -95,7 +95,7 @@ public class ASSBot : Bot
 
                 // Movement Behaviour
                 double tankAngle = RelativeEnemyAngle(predictedX, predictedY);
-                TurnLeft(tankAngle);
+                TurnLeft(NormalizeRelativeAngle(tankAngle));
                 TurnRate = randomGenerator.NextDouble() * 6 - 3; // random from -3 to 3
                 if (distance - DISTANCE_THRESHOLD > 0)
                 {
